@@ -8,7 +8,7 @@
 		<version>3.3.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.user</groupId>
+	<groupId>com.ehelper</groupId>
 	<artifactId>e-helper</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -23,6 +23,8 @@
 	</developers>
 	<modules>
 		<module>user_services</module>
+        <module>admin_services</module>
+		<module>eureka_servers</module>
 	</modules>
 	<scm>
 		<connection/>
@@ -65,7 +67,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Greenwich.RELEASE</version>
+				<version>2023.0.3</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
