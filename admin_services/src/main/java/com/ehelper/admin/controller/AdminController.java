@@ -1,6 +1,7 @@
 package com.ehelper.admin.controller;
 
 import com.ehelper.admin.entity.User;
+import com.ehelper.admin.feign.UserFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -16,6 +17,9 @@ public class AdminController {
     private RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
+    @Autowired
+    private UserFeignClient userFeignClient;
+
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public User getuser(@PathVariable int id){
         //call the service by url directly
@@ -28,6 +32,10 @@ public class AdminController {
 //                +"/user/1",User.class);
 
         //call the service by name(need to use ribbon && this method do not allow url to contain "_")
-        User user = restTemplate.getForObject("http://userservices/user/"+id, User.class);
+//        User user = restTemplate.getForObject("http://userservices/user/"+id, User.class);
+
+        //use interface in feign
+        User user = userFeignClient.getUserById(id);
+
         return user;
     }}
