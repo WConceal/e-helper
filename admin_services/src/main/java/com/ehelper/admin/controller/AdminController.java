@@ -2,6 +2,7 @@ package com.ehelper.admin.controller;
 
 import com.ehelper.admin.entity.User;
 import com.ehelper.admin.feign.UserFeignClient;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -13,11 +14,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-//    @Autowired
-//    private RestTemplate restTemplate;
+    @Autowired
+    private RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
-    @Autowired
+    @Resource
     private UserFeignClient userFeignClient;
 
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
