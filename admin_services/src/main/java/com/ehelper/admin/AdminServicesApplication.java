@@ -5,12 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 @SpringBootApplication
 @EntityScan("com.ehelper.admin.entity")
 //Only valid to Eureka &can not found dependency class
@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 //valid to muti register platform
 @EnableDiscoveryClient
 @EnableFeignClients
+@EnableHystrix
 public class AdminServicesApplication {
     //add ribbon
     @LoadBalanced

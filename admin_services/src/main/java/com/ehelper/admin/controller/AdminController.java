@@ -13,8 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-    @Autowired
-    private RestTemplate restTemplate;
+//    @Autowired
+//    private RestTemplate restTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
     @Autowired
